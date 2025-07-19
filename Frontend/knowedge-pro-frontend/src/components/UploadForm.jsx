@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './UploadForm.css';
+import API_BASE from '../config';
+
 function UploadForm({ onUploadComplete }) {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
@@ -22,7 +24,7 @@ function UploadForm({ onUploadComplete }) {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('http://127.0.0.1:8000/upload/', formData);
+      const res = await axios.post(`${API_BASE}/upload/`, formData);
       setUploadStatus(`✅ Uploaded: ${res.data.chunks_stored} chunks stored.`);
       onUploadComplete && onUploadComplete();
     } catch (error) {

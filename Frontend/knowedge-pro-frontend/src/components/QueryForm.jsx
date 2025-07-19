@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './QueryForm.css';
+import API_BASE from '../config';
 
 const QueryForm = () => {
   const [query, setQuery] = useState('');
@@ -13,7 +14,7 @@ const QueryForm = () => {
     setChat(updatedChat);
     setQuery('');
 
-    const response = await fetch('http://127.0.0.1:8000/query', {
+    const response = await fetch(`${API_BASE}/query`, {
       method: 'POST',
       body: new URLSearchParams({ query }),
       headers: {

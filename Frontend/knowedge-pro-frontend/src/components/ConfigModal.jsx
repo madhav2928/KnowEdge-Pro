@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import './ConfigModal.css';
+import API_BASE from '../config';
 
 const ConfigModal = ({ show, onClose }) => {
   const [formData, setFormData] = useState({
+    LLM_API_URL: '',
     LLM_API_METHOD: '',
     LLM_API_KEY_HEADER: '',
-    LLM_API_KEY_PREFIX: '',
-    LLM_API_KEY: '',
     LLM_REQUEST_BODY_TEMPLATE: '',
     LLM_RESPONSE_JSON_PATH: '',
     EMBEDDING_PROVIDER: '',
-    EMBEDDING_MODEL: '',
-    HF_API_TOKEN: '',
-    LLM_MODEL: ''
+    EMBEDDING_MODEL: ''
   });
 
   const [responseMessage, setResponseMessage] = useState('');
@@ -28,7 +26,7 @@ const ConfigModal = ({ show, onClose }) => {
     }
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/byok/config/bulk-update', {
+      const res = await fetch(`${API_BASE}/byok/config/bulk-update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ updates }),
@@ -61,7 +59,7 @@ const ConfigModal = ({ show, onClose }) => {
     <div className="config-modal-overlay">
       <div className="config-modal">
         <div className="config-modal-header">
-          <h2>Update Config</h2>
+          <h2>Update Config (For now it runs on default values)</h2>
           <button className="close-btn" onClick={onClose}>✖</button>
         </div>
         <div className="config-modal-body">
