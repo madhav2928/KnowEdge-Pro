@@ -59,7 +59,7 @@ cp .env_template .env
 **Required Environment Variables**:
 
 ```text
-##Use your own API keys, and embedding model of your choice, the model which I have given here can also be used, and for free API key you can create one from gemini AI studio
+# Use your own API keys, and embedding model of your choice, the model which I have given here can also be used, and for free API key you can create one from gemini AI studio
 
 
 LLM_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=***********
