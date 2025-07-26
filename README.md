@@ -1,4 +1,4 @@
-# KnowEdge Pro - Comprehensive Documentation
+# KnowEdge Pro
 
 ## Project Overview
 
